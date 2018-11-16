@@ -1,0 +1,22 @@
+{
+  "name": "osims",
+  "version": "1.0.0",
+  "description": "OSIMS frontend software development",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/githubyzhang/OSIMS.git"
+  },
+  "author": "Yuchang Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/githubyzhang/OSIMS/issues"
+  },
+  "homepage": "https://github.com/githubyzhang/OSIMS#readme",
+  "dependencies": {
+    "electron": "^3.0.9"
+  }
+}
