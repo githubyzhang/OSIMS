@@ -12,11 +12,14 @@ app.on('ready', function(){
 	mainWindow = new BrowserWindow({});
 	
 	// Load html into window
-	mainWindow.loadURL(url.format({
-		path: path.join('$PWD', 'mainWindow.html'),
-		protocol: '~',		//'file:',
-		slashes: true
-	}));
+	// for somereason doesn't work at the moment, need to figure this out later.
+//	mainWindow.loadURL(url.format({
+//		path: path.join('/Users/yuchangzhang/git/OSIMS', 'mainWindow.html'),
+//		protocol: '~',		//'file:',
+//		slashes: true
+//	}));
+	
+	mainWindow.loadFile('mainWindow.html')
 	
 	// Build menu from template
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
@@ -28,10 +31,13 @@ app.on('ready', function(){
 // Create Menu template
 const mainMenuTemplate = [
 	{
-		label:'file',
+		label:'OSIMS',
 		submenu:[
 			{
-				label: 'sub1'
+				label: 'About OSIMS'
+			},
+			{
+				label: 'Setting'
 			},
 			{
 				label: 'Quit',
@@ -42,15 +48,76 @@ const mainMenuTemplate = [
 			}
 		]
 	},
+	
 	{
-		label:'edit',
+		label:'System',
 		submenu:[
 			{
-				label: 'sub1'
+				label: 'Configuration'
 			},
 			{
-				label: 'sub2'
+				label: 'Zone Control',
+				submenu:[
+					{
+						label: 'Zone1'
+					},
+					{
+						label: 'Zone2'
+					},
+					{
+						label: 'Zone2'
+					},
+				]
 			}
+		]
+	},
+	
+	{
+		label:'Tools',
+		submenu:[
+			{
+				label: 'Select',
+				submenu:[
+					{
+						label: 'Hot Corner'
+					},
+					{
+						label: 'Check Temperature'
+					},
+				]
+			},
+			{
+				label: 'Tools Manager'
+			},
+			{
+				label: 'Data'
+			}
+			
+		]
+	},
+	
+	{
+		label:'Data',
+		submenu:[
+			{
+				label: 'Display Past Data'
+			}
+		]
+	},
+	
+	{
+		label:'Window',
+		submenu:[
+			{
+				label: 'System Control'
+			},
+			{
+				label: 'Tools Manager'
+			},
+			{
+				label: 'Data Panel'
+			}
+			
 		]
 	}
 ]
