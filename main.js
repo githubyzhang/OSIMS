@@ -1,6 +1,6 @@
 const electron = require('electron');
 const url = require('url');
-const path = require('path');
+var path = require('path');
 
 const {app, BrowserWindow, Menu} = electron;
 
@@ -9,7 +9,14 @@ let mainWindow;
 // listen for app to be ready
 app.on('ready', function(){
 	// Create new window
-	mainWindow = new BrowserWindow({});
+	mainWindow = new BrowserWindow({
+		width: 1281,
+		height: 800,
+		minWidth: 1281,
+		//backgroundColor: '#312450',
+		minHeight: 800,
+		icon: path.join(__dirname, '/front_end/OSIMS_icon.png')
+	});
 	
 	// Load html into window
 	// for somereason doesn't work at the moment, need to figure this out later.
@@ -79,18 +86,17 @@ const mainMenuTemplate = [
 				label: 'Select',
 				submenu:[
 					{
-						label: 'Hot Corner'
+						label: 'Hot Corner',
+						accelerator: process.platform == 'darwin' ? 'Command+H' : 'Ctrl+H'
 					},
 					{
-						label: 'Check Temperature'
+						label: 'Temperature Cursor',
+						accelerator: process.platform == 'darwin' ? 'Command+T' : 'Ctrl+T'
 					},
 				]
 			},
 			{
 				label: 'Tools Manager'
-			},
-			{
-				label: 'Data'
 			}
 			
 		]
