@@ -21,9 +21,9 @@ let child;
 app.on('ready', function(){
 	// Create new window
 	mainWindow = new BrowserWindow({
-		width: 1281,
-		height: 800,
-		minWidth: 1281,
+		width: 1400,
+		height: 1000,
+		minWidth: 1282,
 		//backgroundColor: '#312450',
 		minHeight: 800,
 		icon: path.join(__dirname, '/front_end/OSIMS_icon.png')
@@ -31,7 +31,7 @@ app.on('ready', function(){
 	
 	
 	// Load html into window
-	mainWindow.loadURL(`file://${__dirname}/front_end/mainWindow.html`);
+	mainWindow.loadURL(`file://${__dirname}/front_end/html/mainWindow.html`);
 							//	mainWindow.loadFile('mainWindow.html');
 	
 	// Build menu from template
@@ -44,7 +44,7 @@ app.on('ready', function(){
 	
 	child = new BrowserWindow({parent: mainWindow, modal: true, show: false});
 	
-	child.loadURL(`file://${__dirname}/front_end/settingWindow.html`);
+	child.loadURL(`file://${__dirname}/front_end/html/settingWindow.html`);
 	
 	
 });
