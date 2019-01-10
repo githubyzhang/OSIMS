@@ -1,28 +1,79 @@
 import socket               # Import socket module
 
-
-
-
-
 '''
-Function: Echo Test Script
+Class: Brd
 Author: Yuchang Zhang
-Date: Jan 6, 2019
-Description: Used to establish ethernet socket connection and transmit data.
+Date: Jan 10, 2019
+Description: Used to establish ethernet socket connection to the board and transmit/receive data.
 
-Functions: 
-    Function 1: 
+Function 1: setup()
     Author: Yuchang Zhang
     Description: 
-    
-    Inputs:
-        1. 
-    
-    Outputs:
-        1. 
-    
-    Example use:
+        this function is used to configure the board.
         
+    Inputs:
+        1. ip (string): ip address.
+        2. type (string): whether it is "IFU", Infrared Unit, or "O", other.
+        3. port (int): number of port.
+    
+    Outputs: N/A
+        
+    Example use:
+        new=brd()
+        new.setup(ip='192.168.1.106', type='IFU', port=12345)
+        
+        
+Function 2: echoTest()
+    Author: Yuchang Zhang
+    Description: 
+        echoTest() is used to establish the Ethernet connection to the board and initiate an echo-test 
+        by sending a string, expecting the board to be programmed to return the same string received.
+        This function is called after the brd instance being setup.
+        
+    Inputs: N/A
+
+    Outputs: 
+        1. print(): print whether the connection is true or false.
+    
+    Example use:Example use:
+        new=brd()
+        new.setup(ip='192.168.1.106', type='IFU', port=12345
+        new.echoTest()
+        
+        
+Function 3: camOn()
+    Author: Yuchang Zhang
+    Description:
+        This function is used after connection established by calling echoTest(). It send command to
+        the board to turn on the camera.
+        
+    Inputs: N/A
+    
+    Outputs: N/A
+        
+    Example use:
+        new=brd()
+        new.setup(ip='192.168.1.106', type='IFU', port=12345
+        new.echoTest()
+        new.camOn()
+        
+        
+Function 4: camOff()
+    Author: Yuchang Zhang
+    Description:
+        This function is used after connection established by calling echoTest(). It send command to
+        the board to turn off the camera.
+        
+    Inputs: N/A
+    
+    Outputs: N/A
+        
+    Example use:
+        new=brd()
+        new.setup(ip='192.168.1.106', type='IFU', port=12345
+        new.echoTest()
+        new.camOff()
+    
 '''
 class Brd:
     def __init__(self):
@@ -45,6 +96,7 @@ class Brd:
         data = self.s.recv(1024)
         print(data,type(data))
         self.connected=True if (data is not None) else False
+        print('Connection', self.connected)
         
     def camOn(self):
         if self.connected==False:
@@ -58,12 +110,3 @@ class Brd:
             print('Error: Device not found.')
         else: 
             self.s.sendall(b'CmdCamOff')
-
-def main():
-    new=Brd()
-    new.setup(ip='192.168.1.106', port=12345)
-    new.echoTest()
-    new.camOn()
-    
-if __name__=="__main__":
-    main()
