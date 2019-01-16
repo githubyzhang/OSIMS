@@ -95,7 +95,7 @@ class Brd:
         data=None
         data = self.s.recv(1024)
         print(data,type(data))
-        self.connected=True if (data is not None) else False
+        self.connected=False if (data is None) else True
         print('Connection', self.connected)
         
     def camOn(self):

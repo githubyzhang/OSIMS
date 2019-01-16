@@ -1,12 +1,17 @@
+from brd import Brd
+
 def main():
-    host='192.168.1.106'
+    
+    '''
+        The following lines of codes can be copied and pasted for establishing connection.
+    '''
+    
+    brd=Brd()
+    ip='192.168.1.106'
     port=12345
-    message='Test Echo Message'
-    return_msg=echoTest(host=host, port=port, message=message)
-    if message == return_msg:
-        print('success', message)
-    else:
-        print('test failed')
+    brd.setup(ip=ip,port=port)
+    
+    brd.echoTest()
 
 
        
