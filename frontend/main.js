@@ -31,9 +31,10 @@ app.on('ready', function(){
 	
 	
 	// Load html into window
-	mainWindow.loadURL(`file://${__dirname}/front_end/html/mainWindow.html`);
+	mainWindow.loadURL(path.join(__dirname, '/html/mainWindow.html'));
+			//`file://${__dirname}/html/mainWindow.html`);
 							//	mainWindow.loadFile('mainWindow.html');
-	
+	mainWindow.webContents.openDevTools();
 	// Build menu from template
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 	
@@ -44,7 +45,7 @@ app.on('ready', function(){
 	
 	child = new BrowserWindow({parent: mainWindow, modal: true, show: false});
 	
-	child.loadURL(`file://${__dirname}/front_end/html/settingWindow.html`);
+	child.loadURL(`file://${__dirname}/html/settingWindow.html`);
 	
 	
 });

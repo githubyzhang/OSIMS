@@ -26,6 +26,7 @@ p {
 
 #content {
     background: #FFFFFF;
+    width: 215px;
     height:325px;
     border-radius: 10px;
     border: 1px solid #ebebeb;
