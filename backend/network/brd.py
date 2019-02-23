@@ -90,8 +90,8 @@ class Brd:
         
     def echoTest(self):
         self.s.connect((self.ip, self.port))
-        self.s.sendall(b'MQPspring2019')
-        key='MQPspring2019'
+        self.s.sendall(b'OSIMS')
+        key='OSIMS'
         data=None
         data = self.s.recv(1024)
         print(data,type(data))
@@ -110,3 +110,44 @@ class Brd:
             print('Error: Device not found.')
         else: 
             self.s.sendall(b'CmdCamOff')
+    
+    def test1(self):
+        if self.connected==False:
+            print('Error: Device not found.')
+        else: 
+            self.s.sendall(b'redledon')
+            print('command sent')
+            
+    def test2(self):
+        if self.connected==False:
+            print('Error: Device not found.')
+        else: 
+            self.s.sendall(b'blueledon')
+            print('command sent')
+    
+    
+def main():
+    
+    #     brd=Brd()
+#     ip='192.168.1.66'
+#     port=12345
+#     brd.setup(ip=ip,port=port)
+#      
+#     brd.echoTest()
+#      
+#     brd.test1()
+#     brd.test2()
+
+
+    ip='192.168.1.66'
+    port=12345
+    brd=Brd()
+    brd.setup(ip=ip, type='cam', port=port)
+    brd.s.sendall(b'12345')
+    data=None
+    data=brd.s.recv(1024)
+    print(data,type(data))
+
+if __name__ == "__main__":
+    main()
+    
