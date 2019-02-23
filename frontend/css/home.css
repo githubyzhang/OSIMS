@@ -13,12 +13,13 @@ p {
 }
 
 #wrapper {
+    background: #000000;
     margin: 0 auto;
     width: 1080px;
 }
 
 #contentwrap {
-    width: 220px;
+    width: 210px;
     height:330px;
 	float: left;
     margin: 0 auto;
@@ -26,41 +27,42 @@ p {
 
 #content {
     background: #FFFFFF;
-    width: 215px;
-    height:325px;
+    width: 200px;
+    height:320px;
     border-radius: 10px;
     border: 1px solid #ebebeb;
     margin: 5px;
 }
 
 #videostreamwrap {
-    width: 640px;
+    width: 650px;
     height:330px;
     float: left;
     margin: 0 auto;
 }
 
 #videostream {
-	width: 645px;
-    height:325px;
+	width: 640px;
+    height:320px;
     background: #33CCFF;
     border-radius: 10px;
     border: 1px solid #1fb8eb;
-    margin: 10px;
+    margin: 5px;
 }
 
 #rightcolumnwrap {
-    width: 220px;
+    width: 210px;
     height:330px;
     float: left;
     margin: 0 auto;
 }
 
 #rightcolumn {
-    background: #CC33FF;
+    background: #FFFFFF;
+    width: 200px;
+    height:320px;
     border-radius: 10px;
-    height:325px;
-    border: 1px solid #b81feb;
+    border: 1px solid #ebebeb;
     margin: 5px;
 }
 

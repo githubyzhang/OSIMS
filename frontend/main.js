@@ -1,65 +1,78 @@
 /*
  * File name: main.js
  * Author: Yuchang Zhang
- * Date: 11/24/2018
+ * Date: 02/04/2018
  * Description:
  * 		This is the main renderer process of the JS/html based electron app. There can be only one main process which is named main.js.
  * 		This file include one BrowserWindow instance, this also initiate functionalities of the top window.
  */
 
+// Modules to control application life and create native browser window
+const {app, BrowserWindow, Menu} = require('electron')
 
-const electron = require('electron');
-const url = require('url');
-var path = require('path');
-const {app, BrowserWindow, Menu} = electron;
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let mainWindow
+let child
 
-let mainWindow;
-let child;
+function createWindow () {
+  // Create the browser window.
+  mainWindow = new BrowserWindow({width: 1080, height: 360})
 
+  // and load the home.html of the app.
+  mainWindow.loadFile('home.html')
 
-// listen for app to be ready
-app.on('ready', function(){
-	// Create new window
-	mainWindow = new BrowserWindow({
-		width: 1400,
-		height: 1000,
-		minWidth: 1282,
-		//backgroundColor: '#312450',
-		minHeight: 800,
-		icon: path.join(__dirname, '/front_end/OSIMS_icon.png')
-	});
-	
-	
-	// Load html into window
-	mainWindow.loadURL(`file://${__dirname}/html/mainWindow.html`);
-							//	mainWindow.loadFile('mainWindow.html');
-	
-	// Build menu from template
-	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  
+  // Build menu from template
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
 	
 	// Insert menu
-	Menu.setApplicationMenu(mainMenu);
+  Menu.setApplicationMenu(mainMenu)
 	
 	
 	
-	child = new BrowserWindow({parent: mainWindow, modal: true, show: false});
+  child = new BrowserWindow({parent: mainWindow, modal: true, show: false})
 	
-	child.loadURL(`file://${__dirname}/html/settingWindow.html`);
-	
-	
-});
+  child.loadURL(`file://${__dirname}/setting.html`)
+  // Open the DevTools.
+//  mainWindow.webContents.openDevTools()
+  child.webContents.openDevTools()
 
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+  })
+}
 
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow)
 
+// Quit when all windows are closed.
+app.on('window-all-closed', function () {
+  // On OS X it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
 
+app.on('activate', function () {
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) {
+    createWindow()
+  }
+})
 
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
 
-
-/*
- * Function: mainMenuTemplate()
- * Author: Yuchang Zhang
- * Description: This build the mainMenu and use for the main window of OSIMS app.
- */ 
+// Menu Template here
 const mainMenuTemplate = [
 	{
 		label:'OSIMS',

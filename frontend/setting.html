@@ -1,0 +1,79 @@
+<!-- 	<script>
+		html page name: setting
+		Author: Yuchang Zhang
+		Date: 02/05/2019
+		
+		Description:
+			1. This page is used to establish connections to cameras
+			2. to display list of device status.
+			
+	</script> -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Setting</title>
+		<link rel="stylesheet" type="text/css" href="css/setting.css" />
+		<script src="linkers/network.js"></script>
+	</head>
+	
+<body>
+<div id="wrapper">
+	<div id="tablewrap">
+	<div id="table">
+		<table style="width:100%" id="devicelist">
+		
+		  <!-- <p> Device List</p>
+		  <tr>
+		  	<th>#</th>
+		    <th>Type</th>
+		    <th>Name</th>
+		    <th>ip address</th>
+		    <th>status</th>
+		  </tr>
+		  
+		  <tr>
+		    <td>ddd</td>
+		    <td>ddd</td>
+		    <td>ddd</td>
+		    <td>ddd</td>
+		    <td>ddd</td>
+		  </tr>
+		  <tr>
+		    <td>ddd</td>
+		    <td>ddd</td>
+		    <td>ddd</td>
+		    <td>ddd</td>
+		    <td>ddd</td>
+		  </tr> -->
+		</table>
+
+	</div>
+	</div>
+	
+	<br>
+	
+	<div id="UIwrap">
+		<div id="UI">
+		  Type:
+		  <select id="type">
+		  <option value="camera">camera</option>
+		  <option value="other">other</option>
+		  </select>
+		  
+		  <!-- Type:
+		  <input type="text" id="type" value="camera"> -->
+		  Name:
+		  <input type="text" id="name" value="Name">
+		  IP address:
+		  <input type="text" id="ip" value="192.168.1.106">
+		  <br><br>
+		  <button id="add" class="btn btn-success" onclick="addDevice()">Add a new device</button>
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>

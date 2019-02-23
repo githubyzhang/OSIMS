@@ -1,43 +1,28 @@
-def main():
-    x=3
-    
-    while x<1000000000000:
-        num=2 * x
-        a=1
-        stillgoing=True
-        while (a <= x+1) and stillgoing:
-            stillgoing=True
-            b=num-a
-            if checkprime(a) and checkprime(b):
-                print(num, "proved 1+1 --> a =", a, "b =", b)
-                stillgoing=False
-            if a>x:
-                print("failed at", num)
-                return
-            a+=1
-        x+=1
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-def checkprime(num=0):
-    i = 1
-    while i <= num:
-        if (num%i == 0) and ((i!=1) and (i!=num)):
-            return False
-        i+=1
-    
-    return False if i==2 else True
+from streaming.palette import palette
+from PIL import Image
 
-        
-        
-if __name__=="__main__":
-    main()
+im_buffer=bytes()
+palette = palette()
+path='/Users/yuchangzhang/git/OSIMS/frontend/images'
+filename='ir_image'
+with open(path+'/'+filename+'.bin', mode='rb') as f:
+    x=0
+    y=0
+    while y<60:
+        while x<80:
+            byte_1 = f.read(1)
+            byte_2 = f.read(1)
+            raw=byte_1+byte_2
+            temp=int.from_bytes(raw, byteorder='little')
+            temp=temp-29315
+            temp=int(temp/25)
+            red = palette[temp][0]
+            green = palette[temp][1]
+            blue = palette[temp][2]
+            im_buffer=im_buffer+bytes([red])+bytes([green])+bytes([blue])
+            x+=1     
+        x=0
+        y+=1
+
+im=Image.frombytes(mode='RGB', size=(80,60), data=im_buffer)
+im.show()

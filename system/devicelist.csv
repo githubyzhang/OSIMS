@@ -1,3 +1,3 @@
-﻿Number,Type,IP0,IP1,IP2,IP3
-0,H,192,168,1,103
-1,I,192,168,1,106
+Num,Type,Name,ip address
+1,camera,YZ,192.168.1.101
+2,other,Michael,192.168.1.109

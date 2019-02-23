@@ -1,23 +1,25 @@
 {
-  "name": "osims",
+  "name": "electron-quick-start",
   "version": "1.0.0",
-  "description": "OSIMS frontend software development",
+  "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/githubyzhang/OSIMS.git"
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^3.0.4"
   },
-  "author": "Yuchang Zhang",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/githubyzhang/OSIMS/issues"
-  },
-  "homepage": "https://github.com/githubyzhang/OSIMS#readme",
   "dependencies": {
-    "electron": "^3.0.9",
-    "python-shell": "^1.0.6"
+    "python-shell": "^1.0.7"
   }
 }

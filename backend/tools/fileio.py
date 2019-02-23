@@ -21,10 +21,11 @@ Example use:
  
 '''
 
-def fileout(filename='', path='', labels=[], data=[]):
-    with open(path+'/'+filename, mode='w') as temp_file:
+def fileout(filename='', path='', labels=None, data=[], mode='a'):
+    with open(path+'/'+filename+'.csv', mode=mode) as temp_file:
         file_writer=csv.writer(temp_file,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
-        file_writer.writerow(labels)
+        if labels is not None:
+            file_writer.writerow(labels)
         for i in range(len(data)):
             file_writer.writerow(data[i])
             
@@ -55,7 +56,7 @@ Example use:
 def fileread(filename='',path=''):
     data=[]
     labels=[]
-    with open(filename+'.csv', mode='r') as temp_file:
+    with open(path+'/'+filename+'.csv', mode='r') as temp_file:
         csv_reader=csv.reader(temp_file,delimiter=',')
         line_count=0
         for row in csv_reader:
@@ -64,7 +65,7 @@ def fileread(filename='',path=''):
                 labels.append(row)
             else:
                 data.append(row)
-    return labels, data
+    return labels, data, len(data)
 
 
             
