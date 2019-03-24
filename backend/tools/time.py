@@ -29,6 +29,7 @@ class Time:
         self.hour=get()[3]
         self.minute=get()[4]
         self.second=get()[5]
+        self.string=''
         
     def update(self):
         self.year=get()[0]
@@ -40,6 +41,16 @@ class Time:
         return [self.year,self.month,
                 self.date,self.hour,
                 self.minute,self.second]
+    
+    def stringout(self):
+        self.year=get()[0]
+        self.month=get()[1]
+        self.date=get()[2]
+        self.hour=get()[3]
+        self.minute=get()[4]
+        self.second=get()[5]
+        self.string = str(self.month)+'/'+str(self.date)+'/'+str(self.year)+'  '+str(self.hour)+':'+str(self.minute)+':'+str(self.second)
+        return self.string
 
 def main():
     t=Time()

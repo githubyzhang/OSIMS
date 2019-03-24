@@ -75,28 +75,35 @@ Function 4: camOff()
         new.camOff()
     
 '''
+
 class Brd:
     def __init__(self):
         self.ip=None
-        self.type=None
+        self.name=None
         self.port=None
         self.connected=False
         self.s=socket.socket()
     
-    def setup(self,ip=None,type=None,port=None):
+    def setup(self,ip=None,name=None,port=None):
         self.ip=ip
-        self.type=type
+        self.name=name
         self.port=port
-        
+    
+    def connect(self):
+        if self.connected==False:
+            self.s.connect((self.ip, self.port))
+            self.connected = True
+            print('Connection', self.connected)
+        else:
+            print('Warning: Already Connected')
+    
     def echoTest(self):
-        self.s.connect((self.ip, self.port))
+        if self.connected == False:
+            print('Error: Not Connected!')
+            return
         self.s.sendall(b'OSIMS')
-        key='OSIMS'
-        data=None
         data = self.s.recv(1024)
         print(data,type(data))
-        self.connected=False if (data is None) else True
-        print('Connection', self.connected)
         
     def camOn(self):
         if self.connected==False:
@@ -110,6 +117,15 @@ class Brd:
             print('Error: Device not found.')
         else: 
             self.s.sendall(b'CmdCamOff')
+            
+    def recvImage(self,size):
+        data = b''
+        while len(data) < size:
+            packet = self.s.recv(size - len(data))
+            if not packet:
+                return None
+            data += packet
+        return data
     
     def test1(self):
         if self.connected==False:
