@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0,'/Users/yuchangzhang/git/OSIMS/backend')
 from network.brd import Brd
 from tools.time import Time
 from streaming.palette import palette

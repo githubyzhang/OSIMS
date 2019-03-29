@@ -13,13 +13,13 @@ function streaming(){
 	var path = require("path")
 	
 	var options = {
-	scriptPath : '/Users/yuchangzhang/git/OSIMS/backend/streaming',
+	scriptPath : '/Users/yuchangzhang/git/OSIMS/backend/network',
 		//`/Users/yuchangzhang/git/OSIMS/backend/streaming`,
 		//path.join(__dirname, '/../../backend/streaming/'),
 	pythonPath : '/usr/local/bin/python3.7'
 	}
 	
-	ps.PythonShell.run('cam.py', options, function (err, results) {
+	ps.PythonShell.run('test.py', options, function (err, results) {
 	    if (err) throw err;
 	    console.log(results);
 	  });
