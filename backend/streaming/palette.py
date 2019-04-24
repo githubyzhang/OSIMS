@@ -10,6 +10,8 @@ Example Use:
     palette = palette()
     
 '''
+import numpy as np
+import cv2
 
 def palette():
     palette_160=[#159 to #150
@@ -205,4 +207,21 @@ def palette():
              [4,2,33]]
     
     palette_160.reverse()
-    return palette_160
+    
+    # generate cv2 palette image
+    pbr=bytes()
+    pbg=bytes()
+    pbb=bytes()
+    i=0
+    while i<9600:
+        idx=int(i/60)
+        pbr+=bytes([palette_160[159-idx][0]])
+        pbg+=bytes([palette_160[159-idx][1]])
+        pbb+=bytes([palette_160[159-idx][2]])
+        i+=1
+    b = np.frombuffer(pbb, np.uint8).reshape(480, 20)
+    g = np.frombuffer(pbg, np.uint8).reshape(480, 20)
+    r = np.frombuffer(pbr, np.uint8).reshape(480, 20)
+    palbar=cv2.merge([b,g,r])   
+    
+    return palette_160, palbar

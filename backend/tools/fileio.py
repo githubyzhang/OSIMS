@@ -21,7 +21,7 @@ Example use:
  
 '''
 
-def fileout(filename='', path='', labels=None, data=[], mode='a'):
+def fileout(filename='', path='', labels=None, data=None, mode='a'):
     with open(path+'/'+filename+'.csv', mode=mode) as temp_file:
         file_writer=csv.writer(temp_file,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
         if labels is not None:
@@ -66,6 +66,15 @@ def fileread(filename='',path=''):
             else:
                 data.append(row)
     return labels, data, len(data)
+
+def fileread1(filename='',path=''):
+    data=[]
+    with open(path+'/'+filename+'.csv', mode='r') as temp_file:
+        csv_reader=csv.reader(temp_file,delimiter=',')
+        line_count=0
+        for row in csv_reader:
+            data.append(row)
+    return data, len(data)
 
 
             

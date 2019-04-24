@@ -8,6 +8,12 @@ body {
     color:#333
 }
 
+h1 {
+  text-align: center;
+  color: #0000CD;
+  font-size: 20px;
+}
+
 p {
     padding: 10px;
 }
@@ -15,7 +21,7 @@ p {
 #wrapper {
     background: #000000;
     margin: 0 auto;
-    width: 1080px;
+    width: 760px;
 }
 
 #contentwrap {
@@ -26,7 +32,7 @@ p {
 }
 
 #content {
-    background: #FFFFFF;
+    background: #50B050;
     width: 200px;
     height:320px;
     border-radius: 10px;
@@ -35,16 +41,16 @@ p {
 }
 
 #videostreamwrap {
-    width: 650px;
+    width: 330px;
     height:330px;
     float: left;
     margin: 0 auto;
 }
 
 #videostream {
-	width: 640px;
+	width: 320px;
     height:320px;
-    background: #33CCFF;
+    background: #FF9900;
     border-radius: 10px;
     border: 1px solid #1fb8eb;
     margin: 5px;
@@ -58,7 +64,7 @@ p {
 }
 
 #rightcolumn {
-    background: #FFFFFF;
+    background: #FFFF00;
     width: 200px;
     height:320px;
     border-radius: 10px;

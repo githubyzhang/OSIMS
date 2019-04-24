@@ -52,6 +52,26 @@ class Time:
         self.string = str(self.month)+'/'+str(self.date)+'/'+str(self.year)+'  '+str(self.hour)+':'+str(self.minute)+':'+str(self.second)
         return self.string
 
+    def filenamegen(self):
+        self.year=get()[0]
+        self.month=get()[1]
+        self.date=get()[2]
+        self.hour=get()[3]
+        self.minute=get()[4]
+        self.second=get()[5]
+        filename = str(self.month)+'_'+str(self.date)+'_'+str(self.year)
+        return filename
+    
+    def time(self):
+        self.year=get()[0]
+        self.month=get()[1]
+        self.date=get()[2]
+        self.hour=get()[3]
+        self.minute=get()[4]
+        self.second=get()[5]
+        time = str(self.hour)+':'+str(self.minute)+':'+str(self.second)
+        return time
+    
 def main():
     t=Time()
     print(t.update())

@@ -17,7 +17,7 @@ let child
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1080, height: 360})
+  mainWindow = new BrowserWindow({width: 860, height: 360})
 
   // and load the home.html of the app.
   mainWindow.loadFile('home.html')
@@ -35,8 +35,8 @@ function createWindow () {
 	
   child.loadURL(`file://${__dirname}/setting.html`)
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
-  child.webContents.openDevTools()
+//  mainWindow.webContents.openDevTools()
+//  child.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

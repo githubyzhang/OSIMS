@@ -143,17 +143,6 @@ class Brd:
     
     
 def main():
-    
-    #     brd=Brd()
-#     ip='192.168.1.66'
-#     port=12345
-#     brd.setup(ip=ip,port=port)
-#      
-#     brd.echoTest()
-#      
-#     brd.test1()
-#     brd.test2()
-
 
     ip='192.168.1.66'
     port=12345

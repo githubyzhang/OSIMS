@@ -11,15 +11,17 @@
 function streaming(){
 	var ps = require("python-shell")
 	var path = require("path")
+	var mode = document.getElementById("mode").value
+	var maxval = document.getElementById("maxval").value
+	var minval = document.getElementById("minval").value
 	
 	var options = {
-	scriptPath : '/Users/yuchangzhang/git/OSIMS/backend/network',
-		//`/Users/yuchangzhang/git/OSIMS/backend/streaming`,
-		//path.join(__dirname, '/../../backend/streaming/'),
-	pythonPath : '/usr/local/bin/python3.7'
+	scriptPath : '/Users/yuchangzhang/git/OSIMS/backend/streaming',
+	pythonPath : '/usr/local/bin/python3.7',
+	args: [mode,minval,maxval]
 	}
 	
-	ps.PythonShell.run('test.py', options, function (err, results) {
+	ps.PythonShell.run('stream.py', options, function (err, results) {
 	    if (err) throw err;
 	    console.log(results);
 	  });

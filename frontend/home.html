@@ -5,25 +5,60 @@
 		<title>OSIMS</title>
 		<link rel="stylesheet" type="text/css" href="css/home.css" />
 		<script src="linkers/cam.js"></script>
+		<script src="linkers/plot.js"></script>
 	</head>
 	<body>
 	    <div id="wrapper">
 	        <div id="videostreamwrap">
 	        <div id="videostream">
+				<br>
+				<h1>STREAMING SETTING</h1>
+				<br><br>
+				 Temperature Range Mode:
+				 <select id="mode">
+				 <option value="Default">Default</option>
+				 <option value="Auto">Auto</option>
+				 <option value="Manual">Manual</option>
+				 </select>
+				 <br>
+				 Manual Minimum:
+				 <input type="text" id="minval" value="20">
+				 <br>
+				 Manual Maximum:
+				 <input type="text" id="maxval" value="60">
+				 <br><br>
 	        	<button id="stream" class="btn btn-success" onclick="streaming()">Click to start streaming</button>
-	            <img src="images/OSIMS_icon.png" alt="OSIMS">
 	        </div>
 	        </div>
 	        
 	        <div id="contentwrap">
 	        <div id="content">
-	           <p></p>
+	           <br>
+	           <h1>REAL-TIME PLOT</h1>
+				 <br><br>
+				 Hot Corner Temperature
+				 <button id="hcplot" class="btn btn-success" onclick="hcplot()">Plot</button>
+				 <br><br><br>
+				 Pixel Plot<br>
+				 x-position:
+				 <input type="text" id="xpos" value="20">
+				 <br>
+				 y_position:
+				 <input type="text" id="ypos" value="20">
+				 <br>
+	        	<button id="pixelplot" class="btn btn-success" onclick="pixelplot()">Plot</button>
 	        </div>
 	        </div>
 	        
 	        <div id="rightcolumnwrap">
 	        <div id="rightcolumn">
-	            <p></p>
+	        	<br>
+	            <h1>WARNING SETTING</h1>
+				 <br><br>
+				 Setup Warning Limit:
+				 <input type="text" id="limit" value="50">
+				 <button id="warning" class="btn btn-success" onclick="warning()">Set Warning</button>
+				 <br><br><br>
 	        </div>
 	        </div>
 	    </div>
